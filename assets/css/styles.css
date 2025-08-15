@@ -201,6 +201,9 @@ svg {
     -webkit-backdrop-filter: blur(24px);
     transition: right .4s;
   }
+  .skills__content{
+    column-gap: 2rem;
+  }
 }
 
 .nav__list {
