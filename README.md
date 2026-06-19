@@ -3,7 +3,7 @@
 - [ ] Mission 1
 - [x] Misson 2
 
-*Hello
+*Hello*
 ## Header
 ---
 
