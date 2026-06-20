@@ -23,7 +23,6 @@ if(navClose){
 const navLink = document.querySelectorAll('.nav__link')
 
 const linkAction = () => {
-    const navMenu = document.getElementById('nav-menu')
     // When we click on each nav__link, we remove the show-menu class
     navMenu.classList.remove('show-menu')
 }
@@ -89,4 +88,71 @@ const scrollActive = () => {
 }
 window.addEventListener('scroll', scrollActive)
 
-/*=============== SCROLL REVEAL ANIMATION ===============*/
+/*=============== PROJECT PHOTO LIGHTBOX ===============*/
+const lightbox = document.createElement('div')
+lightbox.classList.add('lightbox')
+lightbox.innerHTML = `
+   <i class="ri-close-line lightbox-close"></i>
+   <img src="" alt="Enlarged project photo">
+`
+document.body.appendChild(lightbox)
+
+const lightboxImg = lightbox.querySelector('img')
+const lightboxClose = lightbox.querySelector('.lightbox-close')
+
+document.querySelectorAll('.projects__box img').forEach(img => {
+    img.addEventListener('click', () => {
+        lightboxImg.src = img.src
+        lightbox.classList.add('active-lightbox')
+    })
+})
+
+lightboxClose.addEventListener('click', () => {
+    lightbox.classList.remove('active-lightbox')
+})
+
+lightbox.addEventListener('click', (e) => {
+    if(e.target === lightbox){
+        lightbox.classList.remove('active-lightbox')
+    }
+})
+
+/*=============== PROJECT VIDEO LIGHTBOX ===============*/
+const videoLightbox = document.createElement('div')
+videoLightbox.classList.add('lightbox-video')
+videoLightbox.innerHTML = `
+   <i class="ri-close-line lightbox-video-close"></i>
+   <video controls></video>
+`
+document.body.appendChild(videoLightbox)
+
+const lightboxVideo = videoLightbox.querySelector('video')
+const lightboxVideoClose = videoLightbox.querySelector('.lightbox-video-close')
+
+document.querySelectorAll('.projects__box').forEach(box => {
+    const thumbVideo = box.querySelector('video')
+    const playIcon = box.querySelector('.projects__play')
+
+    if(thumbVideo && playIcon){
+        playIcon.addEventListener('click', () => {
+            const sourceSrc = thumbVideo.querySelector('source').src
+            lightboxVideo.src = sourceSrc
+            videoLightbox.classList.add('active-lightbox')
+            lightboxVideo.play()
+        })
+    }
+})
+
+function closeVideoLightbox(){
+    videoLightbox.classList.remove('active-lightbox')
+    lightboxVideo.pause()
+    lightboxVideo.currentTime = 0
+}
+
+lightboxVideoClose.addEventListener('click', closeVideoLightbox)
+
+videoLightbox.addEventListener('click', (e) => {
+    if(e.target === videoLightbox){
+        closeVideoLightbox()
+    }
+})
