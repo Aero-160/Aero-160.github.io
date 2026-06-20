@@ -2,7 +2,7 @@
 
 A personal portfolio website for **Mohamed Mostafa**, an Aerospace Engineer specializing in aerodynamic design, structural analysis, embedded systems, and mechanical engineering for fixed-wing aircraft and Formula 1 racing technology.
 
-**Live Site:** [https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/](https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/)
+**Live Site:** [LINK](https://aero-160.github.io/)
 
 ---
 
